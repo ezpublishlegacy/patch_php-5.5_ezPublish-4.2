@@ -1,9 +1,9 @@
 # patch_php-5.5_ezPublish-4.2
 Patch for support php v5.5 in ezPublish v4.2
 
-''Author'': Luca Gerotto
+*Author*: Luca Gerotto
 
-''Email'': luca.gerotto@gmail.com
+*Email*: luca.gerotto@gmail.com
 
 Description
 ===========
