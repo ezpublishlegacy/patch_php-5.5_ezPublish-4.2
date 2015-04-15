@@ -1,0 +1,73 @@
+#Author: Luca Gerotto
+#Email: luca.gerotto@gmail.com
+#Description:
+# To apply this patch from eclipse ide: 
+# 1) copy this file into your ez-Publish root project,
+# 2) then select this file and click on right mouse button,
+# 3) then select Team > Apply Patch...
+# 4) then select the lib folder from the root of ez-publish standard folders and push on next button.
+# 5) verify that there aren't merge errors and click on finish button.
+
+Index: ezutils/classes/ezmodulefunctioninfo.php
+===================================================================
+--- workspace/www.mondadori.it/htdocs/lib/ezutils/classes/ezmodulefunctioninfo.php  (revision 187888)
++++ workspace/www.mondadori.it/htdocs/lib/ezutils/classes/ezmodulefunctioninfo.php  (working copy)
+@@ -136,13 +136,13 @@
+             return false;
+         }
+         $functionDefinition = $this->FunctionList[$functionName];
+-        if ( !isset( $functionName['call_method'] ) )
++        if ( !isset( $functionDefinition['call_method'] ) )
+         {
+             eZDebug::writeError( "No call method defined for function '$functionName' in module '$moduleName'",
+                                  'eZModuleFunctionInfo::execute' );
+             return false;
+         }
+-        if ( !isset( $functionName['parameters'] ) )
++        if ( !isset( $functionDefinition['parameters'] ) )
+         {
+             eZDebug::writeError( "No parameters defined for function '$functionName' in module '$moduleName'",
+                                  'eZModuleFunctionInfo::execute' );
+@@ -181,13 +181,13 @@
+             return null;
+         }
+         $functionDefinition = $this->FunctionList[$functionName];
+-        if ( !isset( $functionName['call_method'] ) )
++        if ( !isset( $functionDefinition['call_method'] ) )
+         {
+             eZDebug::writeError( "No call method defined for function '$functionName' in module '$moduleName'",
+                                  'eZModuleFunctionInfo::execute' );
+             return null;
+         }
+-        if ( !isset( $functionName['parameters'] ) )
++        if ( !isset( $functionDefinition['parameters'] ) )
+         {
+             eZDebug::writeError( "No parameters defined for function '$functionName' in module '$moduleName'",
+                                  'eZModuleFunctionInfo::execute' );
+Index: ezutils/classes/ezmoduleoperationinfo.php
+===================================================================
+--- workspace/www.mondadori.it/htdocs/lib/ezutils/classes/ezmoduleoperationinfo.php (revision 187888)
++++ workspace/www.mondadori.it/htdocs/lib/ezutils/classes/ezmoduleoperationinfo.php (working copy)
+@@ -153,19 +153,19 @@
+             return null;
+         }
+         $operationDefinition = $this->OperationList[$operationName];
+-        if ( !isset( $operationName['default_call_method'] ) )
++        if ( !isset( $operationDefinition['default_call_method'] ) )
+         {
+             eZDebug::writeError( "No call method defined for operation '$operationName' in module '$moduleName'",
+                                  'eZModuleOperationInfo::execute' );
+             return null;
+         }
+-        if ( !isset( $operationName['body'] ) )
++        if ( !isset( $operationDefinition['body'] ) )
+         {
+             eZDebug::writeError( "No body for operation '$operationName' in module '$moduleName'",
+                                  'eZModuleOperationInfo::execute' );
+             return null;
+         }
+-        if ( !isset( $operationName['parameters'] ) )
++        if ( !isset( $operationDefinition['parameters'] ) )
+         {
+             eZDebug::writeError( "No parameters defined for operation '$operationName' in module '$moduleName'",
+                                  'eZModuleOperationInfo::execute' );
