@@ -6,7 +6,7 @@ Patch for support php v5.5 in ezPublish v4.2
 **Email**: luca.gerotto@gmail.com
 
 ## Description
-To apply this patch from eclipse ide: 
+To apply this patch from eclipse ide:
 1. copy this file into your ez-Publish root project,
 2. then select this file and click on right mouse button,
 3. then select Team > Apply Patch...
